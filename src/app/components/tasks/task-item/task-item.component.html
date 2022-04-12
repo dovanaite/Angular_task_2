@@ -1,0 +1,8 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <h5>{{ index + 1 }}. {{ task.taskName }}</h5>
+    Tipas: {{ task.taskType }}
+    <hr />
+    <button class="btn btn-danger" (click)="deleteTask()">Ištrinti</button>
+  </div>
+</div>
