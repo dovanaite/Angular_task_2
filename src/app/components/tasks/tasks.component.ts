@@ -20,14 +20,4 @@ export class TasksComponent implements OnInit {
   }
 
 
-  public addNewTask(taskName:HTMLInputElement, taskType:HTMLSelectElement){
-    if (taskName.value!=''){
-    this.tasksService.add(taskName.value,taskType.value)
-      taskName.value='';
-      taskType.value='';
-    }
-  }
-
-
-
 }
