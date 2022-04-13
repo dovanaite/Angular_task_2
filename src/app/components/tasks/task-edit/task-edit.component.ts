@@ -27,6 +27,7 @@ public taskType:string='';
   public update(){
     this.taskService.update(this.index,this.taskName,this.taskType);
     this.router.navigate(["/"])
+    this.taskService.onTasksChange.emit();
   }
 
 }

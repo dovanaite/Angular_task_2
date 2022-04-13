@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Task } from '../module/TaskModule';
 
 @Injectable({
@@ -6,6 +6,7 @@ import { Task } from '../module/TaskModule';
 })
 export class TasksService {
   public tasks:Task[]=[];
+  public onTasksChange = new EventEmitter();
 
   constructor() { }
 
@@ -27,11 +28,13 @@ export class TasksService {
       });
  
       this.save();
+      this.onTasksChange.emit();
   }
 
   public delete(index:number){
     this.tasks.splice(index,1);
     this.save();
+    this.onTasksChange.emit();
   }
 
   public get(index:number){
@@ -43,5 +46,42 @@ export class TasksService {
     this.tasks[index].taskType=taskType;
     this.save();
   }
+
+  public getTaskCount(){
+      
+      return this.tasks.length;
+    }
+
+  public getSkubuTaskCount(){
+      let count=0;
+      this.tasks.forEach(task=>{
+        if(task.taskType=="skubu") count++
+      })
+      return count;
+  }
+  public getNeskubuTaskCount(){
+      let count=0;
+      this.tasks.forEach(task=>{
+        if(task.taskType=="neskubu") count++
+      })
+      return count;
+  }
+  public getlabaiSkubuTaskCount(){
+      let count=0;
+      this.tasks.forEach(task=>{
+        if(task.taskType=="labai skubu") count++
+      })
+      return count;
+  }
+  public getRutininiuTaskCount(){
+      let count=0;
+      this.tasks.forEach(task=>{
+        if(task.taskType=="rutininis") count++
+      })
+      return count;
+  }
+
+
+
 
 }
