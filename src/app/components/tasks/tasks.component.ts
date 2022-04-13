@@ -11,7 +11,6 @@ export class TasksComponent implements OnInit {
   public tasks:Task[]=[];
 
   constructor(private tasksService:TasksService) { 
-    tasksService.load();
     this.tasks = tasksService.tasks;
 
   }

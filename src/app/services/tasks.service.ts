@@ -34,4 +34,14 @@ export class TasksService {
     this.save();
   }
 
+  public get(index:number){
+    return this.tasks[index];
+  }
+
+  public update(index:number, taskName:string, taskType:string){
+    this.tasks[index].taskName=taskName;
+    this.tasks[index].taskType=taskType;
+    this.save();
+  }
+
 }

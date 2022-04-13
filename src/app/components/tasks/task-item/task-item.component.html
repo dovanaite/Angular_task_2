@@ -3,6 +3,9 @@
     <h5>{{ index + 1 }}. {{ task.taskName }}</h5>
     Tipas: {{ task.taskType }}
     <hr />
+    <a class="btn btn-success" [routerLink]="['/edit', index]">Redaguoti</a>
+    <!-- šitoj vietoj prie routerLink parašom masyvą, kurio duomenis jis įdeda į url -->
+    &nbsp;
     <button class="btn btn-danger" (click)="deleteTask()">Ištrinti</button>
   </div>
 </div>
